@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список книг</title>
+
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'echo/css/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'echo/favicon.png' %}">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Список книг</h1>
+            <!-- Статус авторизации -->
+            <div class="user-info">
+                {% if user.is_authenticated %}
+                    <p>Добро пожаловать, {{ user.username }}!</p>
+                    <a href="{% url 'user_profile' %}">Перейти в личный кабинет</a> <!-- Ссылка на страницу профиля -->
+                    <a href="{% url 'logout' %}">Выйти</a>
+                {% else %}
+                    <p>Вы не авторизованы.</p>
+                    <a href="{% url 'login' %}">Войти</a>
+                    <a href="{% url 'register' %}">Регистрация</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <div class="header1">
+        <div class="header-container">
+            <div class="book-count">
+                <span>Всего книг: {{ book_count }}</span>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'book_create' %}">
+                        <button class="add-button">Добавить книгу</button>
+                    </a>
+                {% endif %}
+            </div>
+            <form method="GET" class="per-page-form">
+                <label for="per_page">Книг на странице:</label>
+                <select name="per_page" id="per_page" onchange="this.form.submit()">
+                    <option value="5" {% if per_page == 5 %}selected{% endif %}>5</option>
+                    <option value="10" {% if per_page == 10 %}selected{% endif %}>10</option>
+                    <option value="15" {% if per_page == 15 %}selected{% endif %}>15</option>
+                    <option value="20" {% if per_page == 20 %}selected{% endif %}>20</option>
+                </select>
+            </form>
+        </div>
+        
+    </div>
+    
+    <div class="books-container">
+        {% for book in page_obj %}
+            <div class="book-card">
+                <p2>{{ book.title }}</p2> 
+                <div class="line-with-dots">
+                    <div class="dot"></div>
+                    <div class="line"></div>
+                    <div class="dot"></div>
+                </div>
+                Автор книги: {{ book.author }} 
+                <br>Год выпуска: {{ book.year }}
+                <br>Цена: {{ book.price }} руб.
+                <br>Жанр: {{ book.genre }}
+                <br>
+                {% if user.is_authenticated and user.role == 'admin' %}
+                    <a href="{% url 'book_update' book.id %}">
+                        <button class="edit-button">Редактировать</button>
+                    </a>
+                    <br>
+                    <a href="{% url 'book_delete' book.id %}">
+                        <button class="delete-button">Удалить</button>
+                    </a>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>Книг пока нет.</p>
+        {% endfor %}
+    </div>
+    
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page=1&per_page={{ per_page }}">Первая</a> |
+            <a href="?page={{ page_obj.previous_page_number }}&per_page={{ per_page }}">Предыдущая</a>
+        {% endif %}
+
+        <span>Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}&per_page={{ per_page }}">Следующая</a> |
+            <a href="?page={{ page_obj.paginator.num_pages }}&per_page={{ per_page }}">Последняя</a>
+        {% endif %}
+    </div>
+</body>
+</html>
