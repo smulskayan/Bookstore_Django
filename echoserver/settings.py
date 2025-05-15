@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Yekaterinburg'
 
 USE_I18N = True
 
@@ -130,7 +130,7 @@ LOGIN_REDIRECT_URL = 'book_list'
 LOGOUT_REDIRECT_URL = '/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    os.path.join(BASE_DIR, "static"),
 ]
 
 LOGGING = {
@@ -138,15 +138,19 @@ LOGGING = {
     'disable_existing_loggers': False,
     'handlers': {
         'file': {
-            'level': 'INFO',  # Уровень логирования (INFO, WARNING, ERROR, DEBUG)
+            'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'django.log',  # Имя файла логов
+            'filename': 'debug.log',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
         },
     },
     'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'INFO',
+        '': {
+            'handlers': ['file', 'console'],
+            'level': 'DEBUG',
             'propagate': True,
         },
     },

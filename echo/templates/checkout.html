@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои заказы</title>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'echo/css/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'echo/favicon.png' %}">
+</head>
+<body>
+    <header>
+        <div>
+            <div class="header-container">
+                <a href="{% url 'book_list' %}" style="text-decoration: none; color: inherit;">
+                    <h1>BOOKSTORE</h1>
+                </a>
+                <div class="info-container">
+                    <div class="user-info relative">
+                        <a href="{% url 'checkout' %}" class="user-icon">
+                            <img src="{% static 'echo/delivery-box.png' %}" alt="User" class="w-8 h-8">
+                        </a>
+                        <p class="user-label">Заказы</p>
+                    </div>
+                    <div class="user-info relative">
+                        <a href="{% url 'cart' %}" class="user-icon">
+                            <img src="{% static 'echo/shopping-cart.png' %}" alt="User" class="w-8 h-8">
+                        </a>
+                        <p class="user-label">Корзина</p>
+                    </div>
+                    <div class="user-info relative">
+                        <a href="{% url 'user_profile' %}" class="user-icon">
+                            <img src="{% static 'echo/user.png' %}" alt="User" class="w-8 h-8">
+                        </a>
+                        <p class="user-label">Профиль</p>
+                        <div class="user-popup">
+                            {% if user.is_authenticated %}
+                            <p class="text-gray-500">Добро пожаловать, {{ user.username }}!</p>
+                            <hr class="separator">
+                            <a href="{% url 'user_profile' %}" class="popup-link text-gray-500">Перейти в личный кабинет</a>
+                            <a href="{% url 'logout' %}" class="popup-link text-gray-500">Выйти</a>
+                            {% else %}
+                            <p class="text-gray-500">Вы не авторизованы.</p>
+                            <hr class="separator">
+                            <a href="{% url 'login' %}" class="popup-link text-gray-500">Войти</a>
+                            <a href="{% url 'register' %}" class="popup-link text-gray-500">Регистрация</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="left-container">
+            <h1>Мои заказы</h1>
+            <hr style="border: none; height: 2px; background-color: gray; margin: 20px 0;">
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+            {% if orders %}
+                {% for order in orders %}
+                    <div class="order">
+                        <h3>Заказ №{{ order.id }} от {{ order.created_at|date:"d.m.Y H:i" }}</h3>
+                        <div class="order-details">
+                            {% for item in order.items.all %}
+                                <div class="cart_book">
+                                    <div class="book-info">
+                                        <div class="book-details" style="text-align: left;">
+                                            <p><strong>{{ item.book.title }}</strong></p>
+                                            <p>Автор: {{ item.book.author }}</p>
+                                            <p>Цена: {{ item.price }} руб.</p>
+                                            <p>Количество: {{ item.quantity }}</p>
+                                        </div>
+                                    </div>
+                                    <p class="item-total"><strong>Сумма: {{ item.total_price }} руб.</strong></p>
+                                </div>
+                            {% endfor %}
+                            <div class="cart_book total-section">
+                                <div class="book-info">
+                                    <p class="cart-total"><strong>Итого: {{ order.total }} руб.</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="border: none; height: 2px; background-color: gray; margin: 20px 0;">
+                {% endfor %}
+            {% else %}
+                <p>У вас нет заказов.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

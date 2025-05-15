@@ -1,0 +1,335 @@
+Watching for file changes with StatReloader
+Checkout view called with method: GET, user: standard_user
+Processing GET request for checkout
+Found 0 orders for user standard_user
+Checkout view called with method: GET, user: standard_user
+Processing GET request for checkout
+Found 0 orders for user standard_user
+Watching for file changes with StatReloader
+Checkout view called with method: GET, user: standard_user
+Processing GET request for checkout
+Found 0 orders for user standard_user
+Checkout view called with method: GET, user: standard_user
+Processing GET request for checkout
+Found 0 orders for user standard_user
+Checkout view called with method: GET, user: standard_user
+Processing GET request for checkout
+Found 0 orders for user standard_user
+Checkout view called with method: GET, user: standard_user
+Processing GET request for checkout
+Found 0 orders for user standard_user
+Checkout view called with method: GET, user: standard_user
+Processing GET request for checkout
+Found 0 orders for user standard_user
+Checkout view called with method: GET, user: standard_user
+Processing GET request for checkout
+Found 0 orders for user standard_user
+Watching for file changes with StatReloader
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 0 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 0 orders for user standard_user
+Checkout view called with method: POST, user: standard_user, user_id: 5
+Processing POST request for checkout
+Cart items count: 2
+Item: Гарри Поттер и философский камень, Quantity: 1, Price: 700.00, Total: 700.00
+Item: Шерлок Холмс: Собака Баскервилей, Quantity: 2, Price: 480.00, Total: 960.00
+Calculated total: 1660.00
+Created order: 1 for user standard_user
+Created OrderItem: 1 x Гарри Поттер и философский камень
+Created OrderItem: 2 x Шерлок Холмс: Собака Баскервилей
+Cart items deleted
+Redirecting to checkout after successful order creation
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 1 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 1 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 1 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 1 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 1 orders for user standard_user
+Added book Старик и море to cart for user standard_user
+Added book Шерлок Холмс: Собака Баскервилей to cart for user standard_user
+Added book Убить пересмешника to cart for user standard_user
+Added book Гарри Поттер и философский камень to cart for user standard_user
+Checkout view called with method: POST, user: standard_user, user_id: 5
+Processing POST request for checkout
+Cart items count: 4
+Item: Старик и море, Quantity: 1, Price: 350.00, Total: 350.00
+Item: Шерлок Холмс: Собака Баскервилей, Quantity: 1, Price: 480.00, Total: 480.00
+Item: Убить пересмешника, Quantity: 1, Price: 550.00, Total: 550.00
+Item: Гарри Поттер и философский камень, Quantity: 1, Price: 700.00, Total: 700.00
+Calculated total: 2080.00
+Created order: 2 for user standard_user
+Created OrderItem: 1 x Старик и море
+Created OrderItem: 1 x Шерлок Холмс: Собака Баскервилей
+Created OrderItem: 1 x Убить пересмешника
+Created OrderItem: 1 x Гарри Поттер и философский камень
+Cart items deleted
+Redirecting to checkout after successful order creation
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 2 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 2 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 2 orders for user standard_user
+Added book Гарри Поттер и философский камень to cart for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 2 orders for user standard_user
+Получены данные: item_id=10, action=increase
+Найден элемент корзины: id=10, book=Гарри Поттер и философский камень, quantity=1
+Элемент обновлён: quantity=2
+Вычислены суммы: total_price=1400.0, cart_total=1400.0
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 2 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 2 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 2 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 2 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 2 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 2 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 2 orders for user standard_user
+Added book Гарри Поттер и философский камень to cart for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 2 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 2 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 2 orders for user standard_user
+Added book Убить пересмешника to cart for user standard_user
+Checkout view called with method: POST, user: standard_user, user_id: 5
+Processing POST request for checkout
+Cart items count: 2
+Item: Гарри Поттер и философский камень, Quantity: 3, Price: 700.00, Total: 2100.00
+Item: Убить пересмешника, Quantity: 1, Price: 550.00, Total: 550.00
+Calculated total: 2650.00
+Created order: 3 for user standard_user
+Created OrderItem: 3 x Гарри Поттер и философский камень
+Created OrderItem: 1 x Убить пересмешника
+Cart items deleted
+Redirecting to checkout after successful order creation
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 3 orders for user standard_user
+Checkout view called with method: GET, user: standard_user, user_id: 5
+Processing GET request for checkout
+Found 3 orders for user standard_user
+Internal Server Error: /edit-profile/
+Traceback (most recent call last):
+  File "C:\Users\Надежда\PycharmProject\bookstore\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Надежда\PycharmProject\bookstore\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Надежда\PycharmProject\bookstore\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Надежда\PycharmProject\bookstore\echoserver\echo\views.py", line 127, in edit_profile
+    form = UserUpdateForm(request.POST, instance=request.user)
+NameError: name 'UserUpdateForm' is not defined
+Not Found: /favicon.ico
+Internal Server Error: /edit-profile/
+Traceback (most recent call last):
+  File "C:\Users\Надежда\PycharmProject\bookstore\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Надежда\PycharmProject\bookstore\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Надежда\PycharmProject\bookstore\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Надежда\PycharmProject\bookstore\echoserver\echo\views.py", line 127, in edit_profile
+    form = UserUpdateForm(request.POST, instance=request.user)
+NameError: name 'UserUpdateForm' is not defined
+Internal Server Error: /edit-profile/
+Traceback (most recent call last):
+  File "C:\Users\Надежда\PycharmProject\bookstore\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Надежда\PycharmProject\bookstore\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Надежда\PycharmProject\bookstore\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Надежда\PycharmProject\bookstore\echoserver\echo\views.py", line 127, in edit_profile
+    form = UserUpdateForm(request.POST, instance=request.user)
+NameError: name 'UserUpdateForm' is not defined
+Internal Server Error: /edit-profile/
+Traceback (most recent call last):
+  File "C:\Users\Надежда\PycharmProject\bookstore\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Надежда\PycharmProject\bookstore\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Надежда\PycharmProject\bookstore\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Надежда\PycharmProject\bookstore\echoserver\echo\views.py", line 127, in edit_profile
+    form = UserUpdateForm(request.POST, instance=request.user)
+NameError: name 'UserUpdateForm' is not defined
+C:\Users\Надежда\PycharmProject\bookstore\echoserver\echo\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Надежда\PycharmProject\bookstore\echoserver\echo\forms.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Надежда\PycharmProject\bookstore\echoserver\echo\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Попытка входа с именем пользователя: standard_u
+Ошибка валидации формы входа: <ul class="errorlist"><li>__all__<ul class="errorlist nonfield"><li>Please enter a correct username and password. Note that both fields may be case-sensitive.</li></ul></li></ul>
+Попытка входа с именем пользователя: standard_u
+Checkout view called with method: GET, user: standard_u, user_id: 5
+Processing GET request for checkout
+Found 3 orders for user standard_u
+Added book Великий Гэтсби to cart for user standard_u
+Added book Шерлок Холмс: Собака Баскервилей to cart for user standard_u
+Попытка входа с именем пользователя: standard_u
+Checkout view called with method: POST, user: standard_u, user_id: 5
+Processing POST request for checkout
+Cart items count: 2
+Item: Великий Гэтсби, Quantity: 1, Price: 399.99, Total: 399.99
+Item: Шерлок Холмс: Собака Баскервилей, Quantity: 1, Price: 480.00, Total: 480.00
+Calculated total: 879.99
+Created order: 4 for user standard_u
+Created OrderItem: 1 x Великий Гэтсби
+Created OrderItem: 1 x Шерлок Холмс: Собака Баскервилей
+Cart items deleted
+Redirecting to checkout after successful order creation
+Checkout view called with method: GET, user: standard_u, user_id: 5
+Processing GET request for checkout
+Found 4 orders for user standard_u
+Checkout view called with method: GET, user: standard_u, user_id: 5
+Processing GET request for checkout
+Found 4 orders for user standard_u
+C:\Users\Надежда\PycharmProject\bookstore\echoserver\echoserver\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Checkout view called with method: GET, user: standard_u, user_id: 5
+Processing GET request for checkout
+Found 4 orders for user standard_u
+Попытка входа с именем пользователя: admiiin
+Added book Великий Гэтсби to cart for user admiiin
+Получены данные: item_id=14, action=increase
+Найден элемент корзины: id=14, book=Великий Гэтсби, quantity=1
+Элемент обновлён: quantity=2
+Вычислены суммы: total_price=799.98, cart_total=799.98
+Получены данные: item_id=14, action=increase
+Найден элемент корзины: id=14, book=Великий Гэтсби, quantity=2
+Элемент обновлён: quantity=3
+Вычислены суммы: total_price=1199.97, cart_total=1199.97
+Получены данные: item_id=14, action=decrease
+Найден элемент корзины: id=14, book=Великий Гэтсби, quantity=3
+Элемент обновлён: quantity=2
+Вычислены суммы: total_price=799.98, cart_total=799.98
+Checkout view called with method: POST, user: admiiin, user_id: 11
+Processing POST request for checkout
+Cart items count: 1
+Item: Великий Гэтсби, Quantity: 2, Price: 399.99, Total: 799.98
+Calculated total: 799.98
+Created order: 5 for user admiiin
+Created OrderItem: 2 x Великий Гэтсби
+Cart items deleted
+Redirecting to checkout after successful order creation
+Checkout view called with method: GET, user: admiiin, user_id: 11
+Processing GET request for checkout
+Found 1 orders for user admiiin
+Checkout view called with method: GET, user: admiiin, user_id: 11
+Processing GET request for checkout
+Found 1 orders for user admiiin
+Попытка входа с именем пользователя: standard_u
+Added book Гарри Поттер и философский камень to cart for user standard_u
+Added book Великий Гэтсби to cart for user standard_u
+Added book Старик и море to cart for user standard_u
+Added book Шерлок Холмс: Собака Баскервилей to cart for user standard_u
+Checkout view called with method: POST, user: standard_u, user_id: 5
+Processing POST request for checkout
+Cart items count: 4
+Item: Гарри Поттер и философский камень, Quantity: 1, Price: 700.00, Total: 700.00
+Item: Великий Гэтсби, Quantity: 1, Price: 399.99, Total: 399.99
+Item: Старик и море, Quantity: 1, Price: 350.00, Total: 350.00
+Item: Шерлок Холмс: Собака Баскервилей, Quantity: 1, Price: 480.00, Total: 480.00
+Calculated total: 1929.99
+Created order: 6 for user standard_u
+Created OrderItem: 1 x Гарри Поттер и философский камень
+Created OrderItem: 1 x Великий Гэтсби
+Created OrderItem: 1 x Старик и море
+Created OrderItem: 1 x Шерлок Холмс: Собака Баскервилей
+Cart items deleted
+Redirecting to checkout after successful order creation
+Checkout view called with method: GET, user: standard_u, user_id: 5
+Processing GET request for checkout
+Found 5 orders for user standard_u
+Checkout view called with method: GET, user: standard_u, user_id: 5
+Processing GET request for checkout
+Found 5 orders for user standard_u
+Checkout view called with method: GET, user: standard_u, user_id: 5
+Processing GET request for checkout
+Found 5 orders for user standard_u
+Попытка входа с именем пользователя: number1
+Checkout view called with method: GET, user: number1, user_id: 12
+Processing GET request for checkout
+Found 0 orders for user number1
+Added book Гарри Поттер и философский камень to cart for user number1
+Added book Собачье сердце to cart for user number1
+Checkout view called with method: POST, user: number1, user_id: 12
+Processing POST request for checkout
+Cart items count: 2
+Item: Гарри Поттер и философский камень, Quantity: 1, Price: 600.00, Total: 600.00
+Item: Собачье сердце, Quantity: 1, Price: 350.00, Total: 350.00
+Calculated total: 950.00
+Created order: 7 for user number1
+Created OrderItem: 1 x Гарри Поттер и философский камень
+Created OrderItem: 1 x Собачье сердце
+Cart items deleted
+Redirecting to checkout after successful order creation
+Checkout view called with method: GET, user: number1, user_id: 12
+Processing GET request for checkout
+Found 1 orders for user number1
+Checkout view called with method: GET, user: number1, user_id: 12
+Processing GET request for checkout
+Found 1 orders for user number1
+Попытка входа с именем пользователя: admiiin
+Checkout view called with method: GET, user: admiiin, user_id: 11
+Processing GET request for checkout
+Found 1 orders for user admiiin
+Попытка входа с именем пользователя: standard_u
+Checkout view called with method: GET, user: standard_u, user_id: 5
+Processing GET request for checkout
+Found 5 orders for user standard_u
+Added book Убить пересмешника to cart for user standard_u
+Added book Шерлок Холмс: Собака Баскервилей to cart for user standard_u
+Checkout view called with method: POST, user: standard_u, user_id: 5
+Processing POST request for checkout
+Cart items count: 2
+Item: Убить пересмешника, Quantity: 1, Price: 550.00, Total: 550.00
+Item: Шерлок Холмс: Собака Баскервилей, Quantity: 1, Price: 480.00, Total: 480.00
+Calculated total: 1030.00
+Created order: 8 for user standard_u
+Created OrderItem: 1 x Убить пересмешника
+Created OrderItem: 1 x Шерлок Холмс: Собака Баскервилей
+Cart items deleted
+Redirecting to checkout after successful order creation
+Checkout view called with method: GET, user: standard_u, user_id: 5
+Processing GET request for checkout
+Found 6 orders for user standard_u
+Checkout view called with method: GET, user: standard_u, user_id: 5
+Processing GET request for checkout
+Found 6 orders for user standard_u

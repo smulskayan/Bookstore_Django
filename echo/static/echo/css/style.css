@@ -50,13 +50,29 @@ button {
     margin: 5px;
 }
 
-.books-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
+.cart-total {
+    font-size: 1.2em;
+    margin: 0;
 }
+
+.order-btn {
+    padding: 10px 20px;
+    background-color: #cfb0cf;
+    color: #ffffffe8;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.order-btn:hover {
+    background-color: #977f97;
+}
+
+.item-total {
+    margin: 0;
+    font-size: 1em;
+}
+
 
 .line-with-dots {
     display: flex;
@@ -88,6 +104,7 @@ select{
 label{
     font-size: 16px; 
 }
+
 /* Контейнер для книг */
 .books-container {
     display: grid; /* Используем grid для распределения книг */
@@ -97,17 +114,7 @@ label{
     justify-items: center; /* Центрируем элементы по горизонтали */
 }
 
-/* Стили для каждой карточки книги */
-.book-card {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.05); /* Увеличенная тень */
-    width: 100%; /* Карточка занимает всю доступную ширину */
-    box-sizing: border-box;
-    max-width: 400px; /* Максимальная ширина карточки */
-}
+
 /* Для экранов шириной меньше 1024px (планшеты) */
 @media (max-width: 1024px) {
     .books-container {
@@ -135,20 +142,9 @@ header {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 5px 20px;
 }
 
-/* Левые элементы (название и авторизация) */
-.header-left {
-    display: flex;
-    align-items: center;
-}
-
-/* Заголовок */
-.header-left h1 {
-    font-size: 24px;
-    margin-right: 20px;
-}
 
 /* Статус авторизации */
 .auth-status {
@@ -193,13 +189,17 @@ header {
 .book-count {
     display: flex;
     align-items: center;
-    gap: 15px; /* Расстояние между элементами внутри блока */
+    flex-direction: column;
+    gap: 10px; /* Расстояние между элементами внутри блока */
+    align-items: center;
+    padding-top: 4px;
 }
 
 /* Для формы с селектом */
 .per-page-form {
     display: flex;
     align-items: center; /* Выравнивание лейбла и селекта по центру */
+    padding-bottom: 10px;
 }
 
 .per-page-form label {
@@ -321,8 +321,7 @@ POST{
 }
 
 
-/* КНОПОЧКИ */
-
+/* Кнопки */
 .form-card1 button {
     text-transform: uppercase;
     font-weight: bold;
@@ -335,7 +334,6 @@ POST{
     cursor: pointer;
     font-family: 'Tektur', sans-serif;
 }
-
 .add-button {
     background-color: #693f86;
     font-family: 'Tektur', sans-serif;
@@ -343,7 +341,6 @@ POST{
     color: white;
     font-weight: bold;
 }
-
 .edit-button {
     font-family: 'Tektur', sans-serif;
     letter-spacing: 1px; 
@@ -351,7 +348,6 @@ POST{
     color: white;
     font-weight: bold;
 }
-
 .delete-button {
     font-family: 'Tektur', sans-serif;
     letter-spacing: 1.3px; 
@@ -359,7 +355,6 @@ POST{
     color: white;
     font-weight: bold;
 }
-
 .cancel{
     text-transform: uppercase;
     font-weight: bold;
@@ -371,11 +366,216 @@ POST{
     color: #000000 !important;
     margin-top: 5px; 
 }
-
 .form-actions2 {
-    display: flex;              /* Используем flexbox для выравнивания */
-    justify-content: center;    /* Выравниваем кнопки по центру */                 /* Отступ между кнопками */
+    display: flex;             
+    justify-content: center;                   
 }
 .cancel1{
     text-align: center;
+}
+
+/* Шапка */
+header {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 0px 0;
+    margin-bottom: 0px;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Разделяет элементы по бокам */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+
+
+
+/* Кнопка добавления в корзину */
+.add-to-cart{
+    background-color: #fff;
+    margin-top: auto;
+    text-transform: uppercase;
+}
+.add-to-cart-button {
+    background-color: rgb(255, 255, 255); 
+    border: none;
+}
+.add-to-cart-button img{
+    width: 27px; 
+    height: 27px;
+}
+
+/* Стили для каждой карточки книги */
+.book-card {
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.05); /* Увеличенная тень */
+    width: 100%; /* Карточка занимает всю доступную ширину */
+    box-sizing: border-box;
+    max-width: 400px; /* Максимальная ширина карточки */
+}
+
+
+/* Иконки на шапке */
+.info-container {
+    display: flex;
+    gap: 25px; /* Расстояние между иконками */
+}
+.user-info {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    z-index: 9999;
+}
+.user-icon {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff; /* Светлый фон для иконки */
+    border-radius: 70%;
+    transition: background-color 0.3s ease;
+}
+.user-icon img {
+    width: 24px;
+    height: 24px;
+}
+.user-popup {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 220px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    border-radius: 8px;
+}
+.user-info:hover .user-popup {
+    opacity: 1;
+    visibility: visible;
+}
+.popup-link {
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 8px;
+    padding: 5px 0;
+    transition: color 0.2s ease;
+}
+.text-gray-500 {
+    color: #8a7f8e;
+}
+.popup-link:hover {
+    color: #000000; 
+}
+.separator {
+    border: 0;
+    border-top: 1px solid #f0f0f0;
+    margin: 10px 0;
+}
+.user-label {
+    font-size: 10px;
+    color: gray;
+    font-family: 'Tektur', sans-serif;
+    text-transform: uppercase;
+}
+
+/* Корзина */
+.container {
+    display: flex; 
+    justify-content: space-between; 
+    max-width: 1200px;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+    margin: auto;
+}
+
+.left-container {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.right-container {
+    width: 25%; /* Правый контейнер занимает 25% */
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.cart_book {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 15px;
+
+}
+
+.book-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.book_img {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.book-details {
+    max-width: 500px;
+}
+
+.quantity-price {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-btn {
+    background-color: #DECBE0;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quantity-btn:hover {
+    background-color: #C9B6D1;
+}
+
+strong {
+    font-size: 1.2em;
+    color: #333;
 }

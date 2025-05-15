@@ -11,46 +11,76 @@
     <link rel="stylesheet" type="text/css" href="{% static 'echo/css/style.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'echo/favicon.png' %}">
 </head>
+
 <body>
     <header>
-        <div class="header-container">
-            <h1>Список книг</h1>
-            <!-- Статус авторизации -->
-            <div class="user-info">
-                {% if user.is_authenticated %}
-                    <p>Добро пожаловать, {{ user.username }}!</p>
-                    <a href="{% url 'user_profile' %}">Перейти в личный кабинет</a> <!-- Ссылка на страницу профиля -->
-                    <a href="{% url 'logout' %}">Выйти</a>
-                {% else %}
-                    <p>Вы не авторизованы.</p>
-                    <a href="{% url 'login' %}">Войти</a>
-                    <a href="{% url 'register' %}">Регистрация</a>
-                {% endif %}
+        <div>
+            <div class="header-container">
+                <div class = "info-container">
+                    <a href="{% url 'book_list' %}" style="text-decoration: none; color: inherit;">
+                        <h1>BOOKSTORE</h1>
+                    </a>
+                    <div class="book-count">
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'book_create' %}">
+                                <button class="add-button">Добавить книгу</button>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="info-container">
+                    <!-- Доставки -->
+                    <div class="user-info relative">
+                        <a href="{% url 'checkout' %}" class="user-icon">
+                            <img src="{% static 'echo/delivery-box.png' %}" alt="User" class="w-8 h-8">
+                        </a>
+                        <p class="user-label">Заказы</p>
+                    </div>
+                    <!-- Корзина -->
+                    <div class="user-info relative">
+                        <a href="{% url 'cart' %}" class="user-icon">
+                            <img src="{% static 'echo/shopping-cart.png' %}" alt="User" class="w-8 h-8">
+                        </a>
+                        <p class="user-label">Корзина</p>
+                    </div>
+                    <!-- Профиль -->
+                    <div class="user-info relative">
+                        <a href="{% url 'user_profile' %}" class="user-icon">
+                            <img src="{% static 'echo/user.png' %}" alt="User" class="w-8 h-8">
+                        </a>
+                        <p class="user-label">Профиль</p>
+                        <div class="user-popup">
+                            {% if user.is_authenticated %}
+                            <p class="text-gray-500">Добро пожаловать, {{ user.username }}!</p>
+                                <hr class="separator">
+                                <a href="{% url 'user_profile' %}" class="popup-link text-gray-500">Перейти в личный кабинет</a>
+                                <a href="{% url 'logout' %}" class="popup-link text-gray-500">Выйти</a>
+                            {% else %}
+                                <p class="text-gray-500">Вы не авторизованы.</p>
+                                <hr class="separator">
+                                <a href="{% url 'login' %}" class="popup-link text-gray-500">Войти</a>
+                                <a href="{% url 'register' %}" class="popup-link text-gray-500">Регистрация</a>
+                            {% endif %}
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="header-container">
+                <form method="GET" class="per-page-form">
+                    <label for="per_page" class="text-gray-500">Книг на странице:</label>
+                    <select name="per_page" id="per_page" onchange="this.form.submit()">
+                        <option value="5" {% if per_page == 5 %}selected{% endif %}>5</option>
+                        <option value="10" {% if per_page == 10 %}selected{% endif %}>10</option>
+                        <option value="15" {% if per_page == 15 %}selected{% endif %}>15</option>
+                        <option value="20" {% if per_page == 20 %}selected{% endif %}>20</option>
+                    </select>
+                </form>
+                <span><p class="text-gray-500">Всего книг: {{ book_count }}</p></span>
             </div>
         </div>
     </header>
-    <div class="header1">
-        <div class="header-container">
-            <div class="book-count">
-                <span>Всего книг: {{ book_count }}</span>
-                {% if user.is_authenticated %}
-                    <a href="{% url 'book_create' %}">
-                        <button class="add-button">Добавить книгу</button>
-                    </a>
-                {% endif %}
-            </div>
-            <form method="GET" class="per-page-form">
-                <label for="per_page">Книг на странице:</label>
-                <select name="per_page" id="per_page" onchange="this.form.submit()">
-                    <option value="5" {% if per_page == 5 %}selected{% endif %}>5</option>
-                    <option value="10" {% if per_page == 10 %}selected{% endif %}>10</option>
-                    <option value="15" {% if per_page == 15 %}selected{% endif %}>15</option>
-                    <option value="20" {% if per_page == 20 %}selected{% endif %}>20</option>
-                </select>
-            </form>
-        </div>
-        
-    </div>
     
     <div class="books-container">
         {% for book in page_obj %}
@@ -75,6 +105,26 @@
                         <button class="delete-button">Удалить</button>
                     </a>
                 {% endif %}
+
+                <div class="add-to-cart">
+                    {% if user.is_authenticated %}
+                        {% if book.id in cart_items %}
+                            <!-- Книга в корзине: показываем кнопки + и - -->
+                            <div class="quantity-controls" data-book-id="{{ book.id }}">
+                                <button class="quantity-btn" data-action="decrease" data-item-id="{{ cart_item.id }}">−</button>
+                                <span class="quantity">{{ cart_item.quantity }}</span>
+                                <button class="quantity-btn" data-action="increase" data-item-id="{{ cart_item.id }}">+</button>
+                            </div>
+                        {% else %}
+                            <form method="POST">
+                                {% csrf_token %}
+                                <button class="add-to-cart-button" onclick="location.href='{% url 'add_to_cart' book.id %}'">
+                                    <img src="{% static 'echo/post.png' %}" alt="Cart Icon" class="w-8 h-8">
+                                </button>
+                            </form>
+                        {% endif %}    
+                    {% endif %}
+                </div>
             </div>
         {% empty %}
             <p>Книг пока нет.</p>
@@ -94,5 +144,7 @@
             <a href="?page={{ page_obj.paginator.num_pages }}&per_page={{ per_page }}">Последняя</a>
         {% endif %}
     </div>
+    {% load static %}
+    <script src="{% static 'echo/js/pl_m.js' %}"></script>
 </body>
 </html>
